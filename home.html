@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage</title>
+  
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+    .career-path-card {
+      opacity: 0.7;
+      border: black 1px solid;
+      
+    }
+    .career-path-card:hover {
+      opacity: 1;
+    }
+
+    .sidebar {
+      min-height: 100vh;
+      width: 250px;
+      background-color: #343a40;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 60px;
+    }
+
+    .sidebar a {
+      color: white;
+      padding: 10px 20px;
+      display: block;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover, .sidebar .dropdown-toggle:hover {
+      background-color: #495057;
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div style="position:fixed; top:0; left:250px; width:calc(100vw - 250px); height:100vh; z-index:0; pointer-events:none;">
+    <img src="career counseling.jpeg" alt="Career Counselling" style="width:100%; height:100vh; object-fit:cover; opacity:0.2;">
+  </div>
+
+  <
+  <div class="sidebar">
+    <h4 class="text-center mb-4">My Website</h4>
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+
+    
+    <div class="dropdown">
+      <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+        Counselling
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark bg-dark">
+        <li><a class="dropdown-item text-white" href="session.html">Book an Online session now</a></li>
+        <li><a class="dropdown-item text-white" href="cc.html">Career Counsellors near you</a></li>
+        <li><a class="dropdown-item text-white" href="#">Marketing</a></li>
+        <li><a class="dropdown-item text-white" href="https://www.careers360.com/courses/articles/what-after-10th-subjects-streams-career-options">What subjects to choose after 10th</a></li>
+      </ul>
+    </div>
+  </div>
+
+  
+  <div class="content animate__animated animate__fadeIn">
+    <div style="overflow:auto;">
+      <h1>
+        <span class="animate__animated animate__fadeInDown" style="display:inline-block; animation-delay:1s; animation-fill-mode:both;">Worried?</span>
+        <span class="animate__animated animate__fadeInDown" style="display:inline-block; animation-delay:1.5s; animation-fill-mode:both; margin-left:1em;">Confused?</span>
+        <span class="animate__animated animate__fadeInDown" style="display:inline-block; animation-delay:2s; animation-fill-mode:both; margin-left:1em;">Need Guidance?</span>
+      </h1>
+      <h1 class="display-4">Welcome to the next Gen counselling solution</h1>
+      <img src="confused.jpeg.jpeg" alt="Confused" style="float:right; width:320px; max-width:40vw; margin:0 0 1em 2em; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+      <p class="lead"><b>This is your one stop for most of the counselling services.</b></p>
+      <p>Welcome to our career counselling web page, where your professional future takes center stage. Whether you're a student exploring career paths, a recent graduate unsure of your next move, or a professional considering a change, we're here to help you make informed and confident decisions. <br><br>Our expert career counsellors provide personalized guidance, practical tools, and up-to-date information to help you identify your strengths, set goals, and navigate the job market. Start building a career that aligns with your interests, skills, and aspirations—your next step begins here.</p>
+    </div>
+    <!-- Features Cards Row -->
+    <div class="container mt-4 mb-4">
+      <div class="row justify-content-center g-4">
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card shadow h-100 text-center p-3">
+            <div style="height:110px; background:#f0f0f0; border-radius:8px; margin-bottom:1em; display:flex; align-items:center; justify-content:center;">
+              <!-- Image placeholder -->
+              <span style="color:#bbb; font-size:2em;">Image</span>
+            </div>
+            <h5 class="fw-bold mb-2">Genuine Services</h5>
+            <p class="mb-0" style="font-size:0.97em;">Verified and trusted career guidance for every student.</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card shadow h-100 text-center p-3">
+            <div style="height:110px; background:#f0f0f0; border-radius:8px; margin-bottom:1em; display:flex; align-items:center; justify-content:center;">
+              <!-- Image placeholder -->
+              <span style="color:#bbb; font-size:2em;">Image</span>
+            </div>
+            <h5 class="fw-bold mb-2">Experienced Counsellors</h5>
+            <p class="mb-0" style="font-size:0.97em;">Meet professionals with years of expertise in career counselling.</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card shadow h-100 text-center p-3">
+            <div style="height:110px; background:#f0f0f0; border-radius:8px; margin-bottom:1em; display:flex; align-items:center; justify-content:center;">
+              <!-- Image placeholder -->
+              <span style="color:#bbb; font-size:2em;">Image</span>
+            </div>
+            <h5 class="fw-bold mb-2">Flow Chart</h5>
+            <p class="mb-0" style="font-size:0.97em;">Visualize your career journey with our interactive flow chart.</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card shadow h-100 text-center p-3">
+            <div style="height:110px; background:#f0f0f0; border-radius:8px; margin-bottom:1em; display:flex; align-items:center; justify-content:center;">
+              <!-- Image placeholder -->
+              <span style="color:#bbb; font-size:2em;">Image</span>
+            </div>
+            <h5 class="fw-bold mb-2">Path for Opportunities</h5>
+            <p class="mb-0" style="font-size:0.97em;">Explore a wide range of career opportunities and paths.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Career Flowchart Section on the Right -->
+
+  <div class="container mt-5 mb-5" style="max-width: 350px; margin-left: auto; margin-right: auto;">
+    <div class="bg-white shadow rounded p-3 career-path-card" id="careerPathCard" style="position:fixed; left:50%; bottom:30px; transform:translateX(-50%); z-index:10; max-width:350px; width:90vw;">
+      <img src="flow.jpeg.jpeg" alt="Career Path Flowchart" style="width: 300px; max-width: 100%; border: 1px solid black; border-radius: 5px;">
+      <div class="text-center mt-2">
+        <a href="form.html" class="text-decoration-none fw-bold text-primary"><b>Make your career path now</b></a>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

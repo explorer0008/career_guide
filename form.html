@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('download.jpeg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        .center-animate {
+            text-align: center;
+            margin-top: 1.2em;
+            margin-bottom: 1em;
+            font-size: 2em;
+            font-weight: 600;
+            animation: fadeInDown 1.2s cubic-bezier(.42,0,.58,1) both;
+        }
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.2em;
+        }
+        .form-buttons button {
+            flex: 1;
+        }
+        .form-buttons button:first-child {
+            margin-right: 1em;
+        }
+        .form-buttons button[type="button"]:hover {
+            background-color: #b71c1c;
+            border-color: #e53935;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(229,57,53,0.15);
+        }
+        .form-buttons button[type="submit"]:hover {
+            background-color: #0d47a1;
+            border-color: #1976d2;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(25,118,210,0.15);
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <h2 class="center-animate">Lets Start</h2>
+    <form action="#" method="post" onsubmit="return validateForm()" style="display: flex; flex-direction: column; gap: 0.2rem; max-width: 400px; margin: 1em auto; width: 100%; padding: 1em; box-sizing: border-box; background: #fafafa; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required pattern="[A-Za-z ]+" title="Name must contain only letters and spaces"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required pattern="^[^@\s]+@[^@\s]+\.com$" title="Email must be valid and end with .com"><br><br>
+        <label for="name">Mobile:</label>
+        <input type="text" id="name" name="name" required pattern="\d+" title="Mobile number must contain only digits"><br><br>
+        <label for="education">Maximum Education Qualification:</label><br>
+        <select id="education" name="education" required>
+            <option value="">Select</option>
+            <option value="High School">High School</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Bachelor's">Bachelor's</option>
+            <option value="Master's">Master's</option>
+            <option value="PhD">PhD</option>
+        </select><br><br>
+        <!-- ...existing code... -->
+
+        <label for="interest">Interest:</label><br>
+        <select id="interest" name="interest" required onchange="showOtherInterest(); showEngineeringSuboptions(); showMedicalSuboptions();">
+            <option value="">Select</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Medical">Medical</option>
+            <option value="Arts">Arts</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Science">Science</option>
+            <option value="Civil Services">Civil Services</option>
+            <option value="NDA">NDA</option>
+            <option value="CDS">CDS</option>
+        </select><br><br>
+        <div id="engineering-suboptions" style="display:none;">
+            <label for="engSuboption">Engineering Suboption:</label><br>
+            <select id="engSuboption" name="engSuboption">
+                <!-- Options will be populated by JS -->
+            </select><br><br>
+        </div>
+        <div id="medical-suboptions" style="display:none;">
+            <label for="medSuboption">Medical Suboption:</label><br>
+            <select id="medSuboption" name="medSuboption">
+                <!-- Options will be populated by JS -->
+            </select><br><br>
+        </div>
+        <div id="other-interest-box" style="display:none;">
+            <label for="otherInterest">Please specify your interest:</label><br>
+            <input type="text" id="otherInterest" name="otherInterest"><br><br>
+        </div>
+        <div id="other-suboptions" style="display:none;">
+            <label for="otherSuboption">Suboption:</label><br>
+            <select id="otherSuboption" name="otherSuboption">
+                <!-- Options will be populated by JS -->
+            </select><br><br>
+        </div>
+
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+        <label for="goal">What do you want to become? <span style="color:red">*</span></label><br>
+        <input type="text" id="goal" name="goal"><br><br>
+
+        <div class="form-buttons">
+            <button type="button" onclick="window.location.href='home.html'" style="background-color: #e53935; color: white; border: 2px solid #b71c1c; border-radius: 6px; padding: 0.5em 1.2em; cursor: pointer; font-weight: 500;">Back</button>
+            <button type="submit" style="background-color: #1976d2; color: white; border: 2px solid #0d47a1; border-radius: 6px; padding: 0.5em 1.2em; cursor: pointer; font-weight: 500;">Submit</button>
+        </div>
+    </form>
+    <p style="font-size:0.95em; color:#555; margin-top:2em;">* This field is optional.</p>
+    <script>
+        function showOtherInterest() {
+            var interestSelect = document.getElementById('interest');
+            var otherBox = document.getElementById('other-interest-box');
+            if (interestSelect.value === 'Other') {
+                otherBox.style.display = 'block';
+            } else {
+                otherBox.style.display = 'none';
+            }
+        }
+
+        function showEngineeringSuboptions() {
+            var interestSelect = document.getElementById('interest');
+            var eduSelect = document.getElementById('education');
+            var engSubDiv = document.getElementById('engineering-suboptions');
+            var engSubSelect = document.getElementById('engSuboption');
+            if (interestSelect.value === 'Engineering') {
+                engSubDiv.style.display = 'block';
+                engSubSelect.innerHTML = '';
+                if (eduSelect.value === 'High School') {
+                    engSubSelect.innerHTML = '<option>JEE Main</option><option>JEE Advanced</option><option>BITSAT</option><option>Other UG Exams</option>';
+                } else if (eduSelect.value === 'Diploma') {
+                    engSubSelect.innerHTML = '<option>Lateral Entry</option>';
+                } else if (eduSelect.value === "Bachelor's") {
+                    engSubSelect.innerHTML = '<option>GATE</option><option>CEED</option><option>JAM</option><option>CAT</option>';
+                } else {
+                    engSubDiv.style.display = 'none';
+                }
+            } else {
+                engSubDiv.style.display = 'none';
+            }
+        }
+
+        function showMedicalSuboptions() {
+            var interestSelect = document.getElementById('interest');
+            var eduSelect = document.getElementById('education');
+            var medSubDiv = document.getElementById('medical-suboptions');
+            var medSubSelect = document.getElementById('medSuboption');
+            if (interestSelect.value === 'Medical') {
+                medSubDiv.style.display = 'block';
+                medSubSelect.innerHTML = '';
+                if (eduSelect.value === 'High School') {
+                    medSubSelect.innerHTML = '<option>NEET-UG</option>';
+                } else if (eduSelect.value === "Bachelor's") {
+                    medSubSelect.innerHTML = '<option>NEET-PG</option>';
+                } else {
+                    medSubDiv.style.display = 'none';
+                }
+            } else {
+                medSubDiv.style.display = 'none';
+            }
+        }
+
+        function showOtherSuboptions() {
+            var interestSelect = document.getElementById('interest');
+            var eduSelect = document.getElementById('education');
+            var otherSubDiv = document.getElementById('other-suboptions');
+            var otherSubSelect = document.getElementById('otherSuboption');
+            var showFor = ['Commerce', 'Arts', 'Science'];
+            if (showFor.includes(interestSelect.value) && eduSelect.value === 'High School') {
+                otherSubDiv.style.display = 'block';
+                otherSubSelect.innerHTML = '<option>CA</option><option>CMA</option><option>CUET</option><option>CS</option><option>ACCA</option><option>ISIAT</option><option>BCom</option><option>BBA</option><option>Mass_Comm</option><option>CLAT</option>';
+            } else {
+                otherSubDiv.style.display = 'none';
+            }
+        }
+
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var mobile = document.getElementsByName('name')[1].value;
+            var nameRegex = /^[A-Za-z ]+$/;
+            var emailRegex = /^[^@\s]+@[^@\s]+\.com$/;
+            var mobileRegex = /^\d+$/;
+            if (!nameRegex.test(name)) {
+                alert('Name must contain only letters and spaces.');
+                return false;
+            }
+            if (!emailRegex.test(email)) {
+                alert('Email must be valid and end with .com');
+                return false;
+            }
+            if (!mobileRegex.test(mobile)) {
+                alert('Mobile number must contain only digits.');
+                return false;
+            }
+            return true;
+        }
+
+        document.getElementById('education').addEventListener('change', function() {
+            showEngineeringSuboptions();
+            showMedicalSuboptions();
+            showOtherSuboptions();
+        });
+        document.getElementById('interest').addEventListener('change', function() {
+            showOtherSuboptions();
+        });
+    </script>
+</body>
+</html>

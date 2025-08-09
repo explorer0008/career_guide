@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Career Counsellors Near You</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f8f9fa; margin: 0; }
+        .container { max-width: 400px; margin: 2em auto; background: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+        label { margin-top: 0.7em; display: block; }
+        input { width: 100%; padding: 0.5em; margin-top: 0.2em; border-radius: 4px; border: 1px solid #ccc; }
+        button { margin-top: 1em; padding: 0.5em 1.5em; border: none; border-radius: 4px; cursor: pointer; }
+        .back-btn { background: #6c757d; color: #fff; margin-right: 1em; }
+        .submit-btn { background: #007bff; color: #fff; }
+        .cards { display: flex; flex-wrap: wrap; gap: 1em; margin-top: 2em; justify-content: center; }
+        .card { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 1em; width: 250px; text-align: center; }
+        .card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 0.5em; }
+        .rating { color: #ffc107; font-size: 1.1em; margin-bottom: 0.5em; }
+        .location { font-size: 0.95em; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="container" id="form-container">
+        <h3>Enter Your Location</h3>
+        <form id="locationForm">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="area">Area:</label>
+            <input type="text" id="area" name="area" required>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" required>
+
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" required>
+
+            <div style="display: flex; justify-content: flex-end;">
+                <button type="button" class="back-btn" onclick="window.history.back()">Back</button>
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="cards" id="cards-container" style="display:none;"></div>
+    <script>
+        // Example counsellor data
+        const counsellors = [
+            {
+                name: "Dr. Priya Sharma",
+                image: "https://randomuser.me/api/portraits/women/44.jpg",
+                rating: 4.8,
+                location: "Delhi, Connaught Place, Delhi, India, 110001",
+                education: "PhD in Psychology, Delhi University",
+                experience: "12 years"
+            },
+            {
+                name: "Mr. Rajesh Kumar",
+                image: "https://randomuser.me/api/portraits/men/32.jpg",
+                rating: 4.6,
+                location: "Mumbai, Andheri, Maharashtra, India, 400053",
+                education: "M.A. in Career Counseling, Mumbai University",
+                experience: "9 years"
+            },
+            {
+                name: "Ms. Anjali Verma",
+                image: "https://randomuser.me/api/portraits/women/68.jpg",
+                rating: 4.9,
+                location: "Bangalore, Koramangala, Karnataka, India, 560034",
+                education: "MSc in Guidance & Counseling, Christ University",
+                experience: "7 years"
+            }
+        ];
+
+        document.getElementById('locationForm').onsubmit = function(e) {
+            e.preventDefault();
+            const city = document.getElementById('city').value.trim().toLowerCase();
+            const area = document.getElementById('area').value.trim().toLowerCase();
+            const state = document.getElementById('state').value.trim().toLowerCase();
+            const country = document.getElementById('country').value.trim().toLowerCase();
+            const pincode = document.getElementById('pincode').value.trim();
+
+            // Filter counsellors by location (simple match for demo)
+            const matches = counsellors.filter(c =>
+                c.location.toLowerCase().includes(city) ||
+                c.location.toLowerCase().includes(area) ||
+                c.location.toLowerCase().includes(state) ||
+                c.location.toLowerCase().includes(country) ||
+                c.location.includes(pincode)
+            );
+
+            document.getElementById('form-container').style.display = 'none';
+            const cardsContainer = document.getElementById('cards-container');
+            cardsContainer.style.display = 'flex';
+            cardsContainer.innerHTML = '';
+            if (matches.length === 0) {
+                cardsContainer.innerHTML = '<p>No counsellors found matching your location.</p>';
+                return;
+            }
+            matches.forEach(c => {
+                cardsContainer.innerHTML += `
+                    <div class="card">
+                        <img src="${c.image}" alt="${c.name}">
+                        <div class="rating">${'★'.repeat(Math.round(c.rating))} (${c.rating})</div>
+                        <div><strong>${c.name}</strong></div>
+                        <div class="location">${c.location}</div>
+                        <div style="margin-top:0.5em; font-size:0.97em;"><b>Education:</b> ${c.education}</div>
+                        <div style="font-size:0.97em;"><b>Experience:</b> ${c.experience}</div>
+                    </div>
+                `;
+            });
+        };
+    </script>
+</body>
+</html>

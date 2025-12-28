@@ -9,6 +9,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="index.css">
   <style>
+    .sidebar {
+      width: 250px;
+      min-height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+    .main-content {
+      margin-left: 250px;
+      min-height: 100vh;
+    }
     .career-path-card {
       opacity: 0.9;
       transition: opacity 0.3s;
@@ -16,23 +28,23 @@
     .career-path-card:hover {
       opacity: 1;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       .sidebar { display: none; }
-      .content { margin-left: 0 !important; padding: 20px; }
-      #careerPathCard { position: static; transform: none; margin: 2em auto; }
+      .main-content { margin-left: 0 !important; }
+      #careerPathCard { position: static; transform: none; margin: 3em auto; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Fixed Sidebar (Desktop) -->
-  <div class="sidebar bg-dark text-white position-fixed top-0 start-0 min-vh-100 col-md-3 col-lg-2 d-none d-md-block">
-    <div class="p-3">
-      <h4 class="text-center mb-4">Career Guide</h4>
-      <a href="index.html" class="text-white text-decoration-none d-block py-2 px-3 rounded">Home</a>
-      <a href="about.html" class="text-white text-decoration-none d-block py-2 px-3 rounded">About</a>
+  <!-- Desktop Sidebar -->
+  <div class="sidebar bg-dark text-white d-none d-md-block">
+    <div class="p-4">
+      <h4 class="text-center mb-5">Career Guide</h4>
+      <a href="index.html" class="text-white text-decoration-none d-block py-3 px-3 rounded">Home</a>
+      <a href="about.html" class="text-white text-decoration-none d-block py-3 px-3 rounded">About</a>
       <div class="dropdown">
-        <a class="dropdown-toggle text-white text-decoration-none d-block py-2 px-3 rounded" data-bs-toggle="dropdown">
+        <a class="dropdown-toggle text-white text-decoration-none d-block py-3 px-3 rounded" data-bs-toggle="dropdown">
           Counselling
         </a>
         <ul class="dropdown-menu dropdown-menu-dark">
@@ -41,11 +53,11 @@
           <li><a class="dropdown-item text-white" href="https://www.careers360.com/courses/articles/what-after-10th-subjects-streams-career-options">What after 10th</a></li>
         </ul>
       </div>
-      <a href="form.html" class="text-white text-decoration-none d-block py-2 px-3 rounded mt-3">Career Roadmap Form</a>
+      <a href="form.html" class="text-white text-decoration-none d-block py-3 px-3 rounded mt-4">Career Roadmap Form</a>
     </div>
   </div>
 
-  <!-- Mobile Header -->
+  <!-- Mobile Navbar -->
   <nav class="navbar navbar-dark bg-dark d-md-none">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Career Guide</a>
@@ -55,22 +67,23 @@
     </div>
   </nav>
 
-  <!-- Offcanvas Menu for Mobile -->
+  <!-- Mobile Offcanvas Menu -->
   <div class="offcanvas offcanvas-start bg-dark text-white" id="offcanvasMenu">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">Menu</h5>
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
-      <a href="index.html" class="text-white text-decoration-none d-block py-2">Home</a>
-      <a href="about.html" class="text-white text-decoration-none d-block py-2">About</a>
-      <a href="session.html" class="text-white text-decoration-none d-block py-2">Book Session</a>
-      <a href="cc.html" class="text-white text-decoration-none d-block py-2">Counsellors Near You</a>
-      <a href="form.html" class="text-white text-decoration-none d-block py-2">Career Roadmap</a>
+      <a href="index.html" class="text-white text-decoration-none d-block py-3">Home</a>
+      <a href="about.html" class="text-white text-decoration-none d-block py-3">About</a>
+      <a href="session.html" class="text-white text-decoration-none d-block py-3">Book Session</a>
+      <a href="cc.html" class="text-white text-decoration-none d-block py-3">Counsellors Near You</a>
+      <a href="form.html" class="text-white text-decoration-none d-block py-3">Career Roadmap Form</a>
     </div>
   </div>
 
-  <div class="content ms-md-5 ps-md-5 animate__animated animate__fadeIn">
+  <!-- Main Content Area -->
+  <div class="main-content animate__animated animate__fadeIn">
     <div class="container py-5">
       <h1 class="display-4 fw-bold">
         <span class="animate__animated animate__fadeInDown" style="animation-delay:1s;">Worried?</span>
@@ -78,12 +91,12 @@
         <span class="animate__animated animate__fadeInDown ms-3" style="animation-delay:2s;">Need Guidance?</span>
       </h1>
       <h1 class="display-5 mt-3">Welcome to Next-Gen Career Counselling</h1>
-      <img src="confused.jpeg.jpeg" alt="Confused Student" class="float-end img-fluid rounded shadow mb-3 ms-3" style="max-width:350px;">
+      <img src="confused.jpeg.jpeg" alt="Confused Student" class="float-end img-fluid rounded shadow mb-4 ms-4" style="max-width:350px;">
       <p class="lead"><b>Your one-stop platform for expert career guidance.</b></p>
       <p>We help students and professionals make confident career choices with personalized advice, interactive tools, and trusted counsellors.</p>
 
       <!-- Features -->
-      <div class="row g-4 mt-4">
+      <div class="row g-4 mt-5">
         <div class="col-12 col-sm-6 col-md-3">
           <div class="card h-100 text-center p-4 card-shadow border-0">
             <i class="bi bi-shield-check display-4 text-primary mb-3"></i>
@@ -115,9 +128,19 @@
       </div>
     </div>
 
-    <!-- Floating Flowchart Card -->
-    <div class="container my-5 d-md-block" style="max-width: 380px; margin-left: auto; margin-right: auto;">
-      <div class="bg-white rounded p-4 career-path-card card-shadow" id="careerPathCard">
+    <!-- Floating Flowchart Card (Desktop) -->
+    <div class="container my-5 d-none d-md-block" style="max-width: 380px; margin-left: auto; margin-right: 2rem;">
+      <div class="bg-white rounded p-4 career-path-card card-shadow">
+        <img src="flow.jpeg.jpeg" alt="Career Flowchart" class="w-100 rounded border">
+        <div class="text-center mt-3">
+          <a href="form.html" class="btn btn-primary btn-lg">Make Your Career Path Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flowchart Card (Mobile - centered) -->
+    <div class="container my-5 d-md-none">
+      <div class="bg-white rounded p-4 career-path-card card-shadow mx-auto" style="max-width: 380px;" id="careerPathCard">
         <img src="flow.jpeg.jpeg" alt="Career Flowchart" class="w-100 rounded border">
         <div class="text-center mt-3">
           <a href="form.html" class="btn btn-primary btn-lg">Make Your Career Path Now</a>

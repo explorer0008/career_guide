@@ -7,38 +7,56 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
         body {
+            padding: 3rem 1rem;
             min-height: 100vh;
-            padding: 2rem 1rem;
-            background: transparent; /* Let index.css ::before handle background */
+            display: flex;
+            flex-direction: column;
         }
         .form-container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .main-heading {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #212529;
+            animation: fadeInDown 1.2s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .form-card {
             background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-        .main-heading {
-            font-size: 2.8rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 2.5rem;
-            color: #1a1a1a;
-            animation: fadeInDown 1s ease-out;
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-40px); }
-            to { opacity: 1; transform: translateY(0); }
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            flex-grow: 1;
         }
         .btn-primary-custom {
             background-color: #1976d2;
             border: none;
-            padding: 0.7rem 1.8rem;
+            padding: 0.8rem 2rem;
             font-weight: 600;
+            font-size: 1.1rem;
         }
         .btn-primary-custom:hover {
             background-color: #0d47a1;
@@ -46,45 +64,50 @@
         .btn-secondary-custom {
             background-color: #e53935;
             border: none;
-            padding: 0.7rem 1.8rem;
+            padding: 0.8rem 2rem;
             font-weight: 600;
+            font-size: 1.1rem;
         }
         .btn-secondary-custom:hover {
             background-color: #b71c1c;
         }
         @media (max-width: 576px) {
             .main-heading {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
+                margin-bottom: 2rem;
             }
             .form-card {
-                padding: 1.8rem;
+                padding: 2rem;
+            }
+            body {
+                padding: 2rem 0.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container-fluid form-container">
+    <div class="form-container">
         <h1 class="main-heading">Let's Build Your Career Path</h1>
 
         <div class="form-card">
             <form onsubmit="return validateForm()">
-                <div class="mb-3">
+                <div class="mb-4">
                     <label class="form-label fw-bold">Name <span class="text-danger">*</span></label>
                     <input type="text" class="form-control form-control-lg" id="name" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label class="form-label fw-bold">Email <span class="text-danger">*</span></label>
                     <input type="email" class="form-control form-control-lg" id="email" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label class="form-label fw-bold">Mobile <span class="text-danger">*</span></label>
                     <input type="text" class="form-control form-control-lg" id="mobile" required pattern="[0-9]{10}" placeholder="10-digit number">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label class="form-label fw-bold">Highest Education</label>
                     <select class="form-select form-select-lg" id="education" required onchange="updateSuboptions()">
                         <option value="">Select</option>
@@ -96,7 +119,7 @@
                     </select>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label class="form-label fw-bold">Area of Interest</label>
                     <select class="form-select form-select-lg" id="interest" required onchange="updateSuboptions()">
                         <option value="">Select</option>
@@ -112,34 +135,34 @@
                     </select>
                 </div>
 
-                <div id="other-interest-box" class="mb-3" style="display:none;">
+                <div id="other-interest-box" class="mb-4" style="display:none;">
                     <label class="form-label fw-bold">Specify Your Interest</label>
                     <input type="text" class="form-control form-control-lg" id="otherInterest">
                 </div>
 
-                <div id="suboptions" class="mb-3" style="display:none;">
+                <div id="suboptions" class="mb-4" style="display:none;">
                     <label class="form-label fw-bold" id="suboptionLabel"></label>
                     <select class="form-select form-select-lg" id="suboption"></select>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label fw-bold">Message / Concerns</label>
-                    <textarea class="form-control form-control-lg" id="message" rows="5" required placeholder="Tell us about your doubts or goals..."></textarea>
-                </div>
-
                 <div class="mb-4">
-                    <label class="form-label fw-bold">Your Career Goal (Optional)</label>
-                    <input type="text" class="form-control form-control-lg" id="goal" placeholder="e.g., Software Engineer, Doctor, IAS Officer">
+                    <label class="form-label fw-bold">Message / Concerns</label>
+                    <textarea class="form-control form-control-lg" id="message" rows="5" required placeholder="Share your doubts, goals, or any concerns..."></textarea>
                 </div>
 
-                <div class="d-flex gap-3 justify-content-center">
+                <div class="mb-5">
+                    <label class="form-label fw-bold">Your Career Goal (Optional)</label>
+                    <input type="text" class="form-control form-control-lg" id="goal" placeholder="e.g., Doctor, Engineer, IAS Officer">
+                </div>
+
+                <div class="d-flex gap-4 justify-content-center">
                     <button type="button" class="btn btn-secondary-custom btn-lg" onclick="history.back()">Back</button>
                     <button type="submit" class="btn btn-primary-custom btn-lg">Submit Form</button>
                 </div>
             </form>
         </div>
 
-        <p class="text-center text-muted mt-4 small">* Required fields</p>
+        <p class="text-center text-muted mt-5 small">* Required fields</p>
     </div>
 
     <script src="main.js"></script>
@@ -162,7 +185,7 @@
                 if (education === 'High School') {
                     subSelect.innerHTML = '<option>JEE Main</option><option>JEE Advanced</option><option>BITSAT</option><option>State CETs</option>';
                 } else if (education === "Bachelor's") {
-                    subSelect.innerHTML = '<option>GATE</option><option>CAT (for MBA)</option><option>CEED</option>';
+                    subSelect.innerHTML = '<option>GATE</option><option>CAT (MBA)</option><option>CEED</option>';
                 }
             } else if (interest === 'Medical') {
                 subDiv.style.display = 'block';
@@ -181,7 +204,7 @@
                 alert('Please enter a valid 10-digit mobile number.');
                 return false;
             }
-            alert('Thank you! Your form has been submitted successfully.\nWe will generate your personalized career roadmap soon.');
+            alert('Thank you! Your career roadmap request has been submitted successfully.');
             return true;
         }
     </script>

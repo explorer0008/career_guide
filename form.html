@@ -7,83 +7,139 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <style>
-        .center-animate {
+        body {
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            background: transparent; /* Let index.css ::before handle background */
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        .main-heading {
+            font-size: 2.8rem;
+            font-weight: 800;
             text-align: center;
-            margin: 2rem 0 1rem;
-            font-size: 2.2rem;
-            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: #1a1a1a;
             animation: fadeInDown 1s ease-out;
         }
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
+            from { opacity: 0; transform: translateY(-40px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        .btn-primary-custom {
+            background-color: #1976d2;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+        }
+        .btn-primary-custom:hover {
+            background-color: #0d47a1;
+        }
+        .btn-secondary-custom {
+            background-color: #e53935;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+        }
+        .btn-secondary-custom:hover {
+            background-color: #b71c1c;
+        }
+        @media (max-width: 576px) {
+            .main-heading {
+                font-size: 2.2rem;
+            }
+            .form-card {
+                padding: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container py-5">
-        <h2 class="center-animate">Let's Build Your Career Path</h2>
-        <form action="#" method="post" onsubmit="return validateForm()" class="mx-auto bg-white p-4 rounded card-shadow" style="max-width: 500px;">
-            <div class="mb-3">
-                <label class="form-label">Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="name" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Email <span class="text-danger">*</span></label>
-                <input type="email" class="form-control" id="email" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Mobile <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="mobile" required pattern="[0-9]{10}">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Highest Education</label>
-                <select class="form-select" id="education" required onchange="updateSuboptions()">
-                    <option value="">Select</option>
-                    <option>High School</option>
-                    <option>Diploma</option>
-                    <option>Bachelor's</option>
-                    <option>Master's</option>
-                    <option>PhD</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Area of Interest</label>
-                <select class="form-select" id="interest" required onchange="updateSuboptions()">
-                    <option value="">Select</option>
-                    <option>Engineering</option>
-                    <option>Medical</option>
-                    <option>Commerce</option>
-                    <option>Arts</option>
-                    <option>Science</option>
-                    <option>Civil Services</option>
-                    <option>NDA</option>
-                    <option>CDS</option>
-                    <option>Other</option>
-                </select>
-            </div>
-            <div id="other-interest-box" class="mb-3" style="display:none;">
-                <label class="form-label">Specify Interest</label>
-                <input type="text" class="form-control" id="otherInterest">
-            </div>
-            <div id="suboptions" class="mb-3" style="display:none;">
-                <label class="form-label" id="suboptionLabel"></label>
-                <select class="form-select" id="suboption"></select>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Message / Concerns</label>
-                <textarea class="form-control" id="message" rows="4" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Your Career Goal</label>
-                <input type="text" class="form-control" id="goal">
-            </div>
-            <div class="d-flex gap-3 justify-content-center">
-                <button type="button" class="btn btn-secondary-custom px-4" onclick="history.back()">Back</button>
-                <button type="submit" class="btn btn-primary-custom px-4">Submit</button>
-            </div>
-        </form>
-        <p class="text-center text-muted mt-3 small">* Required fields</p>
+
+    <div class="container-fluid form-container">
+        <h1 class="main-heading">Let's Build Your Career Path</h1>
+
+        <div class="form-card">
+            <form onsubmit="return validateForm()">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control form-control-lg" id="name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Email <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control form-control-lg" id="email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Mobile <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control form-control-lg" id="mobile" required pattern="[0-9]{10}" placeholder="10-digit number">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Highest Education</label>
+                    <select class="form-select form-select-lg" id="education" required onchange="updateSuboptions()">
+                        <option value="">Select</option>
+                        <option>High School</option>
+                        <option>Diploma</option>
+                        <option>Bachelor's</option>
+                        <option>Master's</option>
+                        <option>PhD</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Area of Interest</label>
+                    <select class="form-select form-select-lg" id="interest" required onchange="updateSuboptions()">
+                        <option value="">Select</option>
+                        <option>Engineering</option>
+                        <option>Medical</option>
+                        <option>Commerce</option>
+                        <option>Arts</option>
+                        <option>Science</option>
+                        <option>Civil Services</option>
+                        <option>NDA</option>
+                        <option>CDS</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div id="other-interest-box" class="mb-3" style="display:none;">
+                    <label class="form-label fw-bold">Specify Your Interest</label>
+                    <input type="text" class="form-control form-control-lg" id="otherInterest">
+                </div>
+
+                <div id="suboptions" class="mb-3" style="display:none;">
+                    <label class="form-label fw-bold" id="suboptionLabel"></label>
+                    <select class="form-select form-select-lg" id="suboption"></select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Message / Concerns</label>
+                    <textarea class="form-control form-control-lg" id="message" rows="5" required placeholder="Tell us about your doubts or goals..."></textarea>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Your Career Goal (Optional)</label>
+                    <input type="text" class="form-control form-control-lg" id="goal" placeholder="e.g., Software Engineer, Doctor, IAS Officer">
+                </div>
+
+                <div class="d-flex gap-3 justify-content-center">
+                    <button type="button" class="btn btn-secondary-custom btn-lg" onclick="history.back()">Back</button>
+                    <button type="submit" class="btn btn-primary-custom btn-lg">Submit Form</button>
+                </div>
+            </form>
+        </div>
+
+        <p class="text-center text-muted mt-4 small">* Required fields</p>
     </div>
 
     <script src="main.js"></script>
@@ -98,34 +154,38 @@
 
             otherBox.style.display = interest === 'Other' ? 'block' : 'none';
             subDiv.style.display = 'none';
+            subSelect.innerHTML = '';
 
             if (interest === 'Engineering') {
                 subDiv.style.display = 'block';
-                subLabel.textContent = "Recommended Exams:";
-                subSelect.innerHTML = '';
-                if (education === 'High School') subSelect.innerHTML = '<option>JEE Main</option><option>JEE Advanced</option><option>BITSAT</option>';
-                else if (education === "Bachelor's") subSelect.innerHTML = '<option>GATE</option><option>CAT</option>';
+                subLabel.textContent = "Recommended Entrance Exams:";
+                if (education === 'High School') {
+                    subSelect.innerHTML = '<option>JEE Main</option><option>JEE Advanced</option><option>BITSAT</option><option>State CETs</option>';
+                } else if (education === "Bachelor's") {
+                    subSelect.innerHTML = '<option>GATE</option><option>CAT (for MBA)</option><option>CEED</option>';
+                }
             } else if (interest === 'Medical') {
                 subDiv.style.display = 'block';
-                subLabel.textContent = "Recommended Exams:";
-                subSelect.innerHTML = education === 'High School' ? '<option>NEET-UG</option>' : '<option>NEET-PG</option>';
+                subLabel.textContent = "Recommended Entrance Exams:";
+                subSelect.innerHTML = education === 'High School' ? '<option>NEET-UG</option>' : '<option>NEET-PG</option><option>AIIMS PG</option>';
             } else if (['Commerce','Arts','Science'].includes(interest) && education === 'High School') {
                 subDiv.style.display = 'block';
-                subLabel.textContent = "Possible Paths:";
-                subSelect.innerHTML = '<option>CA Foundation</option><option>CLAT</option><option>CUET</option><option>BBA</option><option>Mass Communication</option>';
+                subLabel.textContent = "Popular Options:";
+                subSelect.innerHTML = '<option>CA Foundation</option><option>CLAT (Law)</option><option>CUET</option><option>BBA Entrance</option><option>Hotel Management</option>';
             }
         }
 
         function validateForm() {
-            const mobile = document.getElementById('mobile').value;
+            const mobile = document.getElementById('mobile').value.trim();
             if (!/^\d{10}$/.test(mobile)) {
                 alert('Please enter a valid 10-digit mobile number.');
                 return false;
             }
-            alert('Thank you! We will generate your personalized career roadmap soon.');
+            alert('Thank you! Your form has been submitted successfully.\nWe will generate your personalized career roadmap soon.');
             return true;
         }
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

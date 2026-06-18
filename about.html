@@ -1,27 +1,494 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta
+    name="description"
+    content="Learn about CareerPath and its mission to make career guidance accessible to students."
+  />
+
+  <title>About | CareerPath</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="index.css" />
+
+  <style>
+    .about-hero {
+      position: relative;
+      padding: 165px 0 105px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 30%, rgba(255, 139, 77, 0.16), transparent 25%),
+        radial-gradient(circle at 88% 20%, rgba(91, 76, 240, 0.17), transparent 28%),
+        #fbfaff;
+    }
+
+    .about-hero h1 {
+      max-width: 850px;
+      margin: 0 auto 22px;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    .about-hero h1 span {
+      color: var(--primary);
+    }
+
+    .about-hero p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.8;
+    }
+
+    .story-image {
+      width: 100%;
+      height: 550px;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      object-fit: cover;
+    }
+
+    .story-content h2 {
+      margin-bottom: 22px;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      font-weight: 800;
+      line-height: 1.18;
+    }
+
+    .story-content p {
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.85;
+    }
+
+    .value-card {
+      height: 100%;
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      transition: 0.3s ease;
+    }
+
+    .value-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-7px);
+    }
+
+    .value-icon {
+      display: grid;
+      width: 58px;
+      height: 58px;
+      margin-bottom: 21px;
+      color: var(--primary);
+      background: #efedff;
+      border-radius: 17px;
+      font-size: 1.4rem;
+      place-items: center;
+    }
+
+    .value-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .value-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .creator-card {
+      padding: clamp(28px, 6vw, 60px);
+      background: linear-gradient(135deg, #191f3a, #292f55);
+      border-radius: 30px;
+      color: white;
+    }
+
+    .creator-card h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+    }
+
+    .creator-card p {
+      color: #c8cce0;
+      font-size: 1.04rem;
+      line-height: 1.8;
+    }
+
+    .technology-list {
+      display: flex;
+      gap: 12px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .technology {
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      font-weight: 700;
+    }
+
+    .technology i {
+      margin-right: 7px;
+      color: #a99fff;
+    }
+
+    .technology-image {
+      width: 100%;
+      max-height: 270px;
+      padding: 20px;
+      background: white;
+      border-radius: 20px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 576px) {
+      .about-hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .story-image {
+        height: 400px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>About</h1>
-    <div style="display: flex; justify-content: center; margin-top: 2em;">
-      <div style="width: 70%; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-radius: 12px; padding: 2em; text-align: center;">
-        <img src="profile.jpg" alt="Profile" style="width: 40%; max-width: 250px; border-radius: 8px; margin-bottom: 1em;">
-        <h3 style="font-weight: normal;">Hello, my name is <b>Divyanshu</b>, and I recently completed this web development project where I utilized <b>Bootstrap</b>, along with <b>HTML, CSS, and JavaScript</b>. <br><br>I used Bootstrap to streamline responsive design and enhance the UI components, while custom HTML, CSS, and JavaScript helped me implement specific functionality and styling tailored to the project.</h3>
-        <h3 style="font-weight: normal;">Career counselling is essential for helping individuals make informed career choices, but many students—especially in high school—struggle due to a <b>lack of guidance</b>, limited access to resources, or external pressure.<br>
-To address this, we developed a platform that offers <b>career counselling support in just a few clicks</b>, providing access to <b>expert advice</b>, career options, and personalized recommendations.<br>
-A key feature is our interactive <b>career roadmap flowchart</b>, specifically designed for high school students.<br>
-Whether they have a goal or are still uncertain, the flowchart presents a <b>clear step-by-step path</b> based on their <b>interests, strengths</b>, and academic background.<br>
-It breaks down complex career paths into manageable stages like <b>courses, skill-building, and entrance exams</b>, helping students move from <b>confusion to clarity</b> and take confident steps toward their future.
-</h3>
-        <div style="display: flex; justify-content: center; gap: 2em; margin-top: 2em;">
-          <img src="html2.jpeg.jpeg" alt="HTML Project 2" style="width: 65%; max-width: 400px; border-radius: 8px;">
-          <img src="bootstrap.jpeg.jpeg" alt="Bootstrap Project" style="width: 25%; max-width: 150px; border-radius: 8px; height: 110px; object-fit: cover; margin-top: 30px;">
-        </div>
+  <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon">
+          <i class="bi bi-signpost-split-fill"></i>
+        </span>
+        CareerPath
+      </a>
+
+      <button
+        class="navbar-toggler border-0 shadow-none"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navigation"
+        aria-label="Open navigation"
+      >
+        <i class="bi bi-list fs-2"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#services">Services</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="cc.html">Career guide</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="about.html">About</a>
+          </li>
+        </ul>
+
+        <a class="btn-main" href="session.html">
+          Book a session
+          <i class="bi bi-arrow-right"></i>
+        </a>
       </div>
     </div>
+  </nav>
+
+  <main>
+    <section class="about-hero text-center">
+      <div class="container">
+        <span class="section-label">
+          <i class="bi bi-stars"></i>
+          About CareerPath
+        </span>
+
+        <h1>
+          Helping students move from <span>confusion to clarity.</span>
+        </h1>
+
+        <p>
+          CareerPath makes career guidance more accessible, understandable and
+          actionable so students can make informed decisions about their future.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <img
+              class="story-image"
+              src="q5z29tae.png"
+              alt="Student receiving career guidance and support"
+            />
+          </div>
+
+          <div class="col-lg-6 story-content">
+            <span class="section-label">
+              <i class="bi bi-lightbulb-fill"></i>
+              Why we built it
+            </span>
+
+            <h2>Career decisions should not feel overwhelming.</h2>
+
+            <p>
+              Many students struggle to choose a career because they have
+              limited access to reliable guidance, unclear information or
+              pressure from the people around them.
+            </p>
+
+            <p>
+              CareerPath was designed to bring useful career resources,
+              personalised recommendations and expert counselling together in
+              one simple platform.
+            </p>
+
+            <p>
+              Our career roadmap helps students understand the courses, skills,
+              examinations and milestones connected to their goals. It turns a
+              complex decision into a practical sequence of manageable steps.
+            </p>
+
+            <a class="btn-main mt-3" href="form.html">
+              Discover your path
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding bg-soft">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-label">
+            <i class="bi bi-heart-fill"></i>
+            What matters to us
+          </span>
+
+          <h2 class="section-title mx-auto">
+            Guidance built around the student
+          </h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <article class="value-card">
+              <div class="value-icon">
+                <i class="bi bi-person-check-fill"></i>
+              </div>
+
+              <h3>Personalised</h3>
+              <p>
+                Recommendations should reflect each student's interests,
+                strengths and circumstances.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <article class="value-card">
+              <div class="value-icon">
+                <i class="bi bi-signpost-2-fill"></i>
+              </div>
+
+              <h3>Practical</h3>
+              <p>
+                Every career goal should be supported by clear and achievable
+                next steps.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <article class="value-card">
+              <div class="value-icon">
+                <i class="bi bi-book-fill"></i>
+              </div>
+
+              <h3>Informative</h3>
+              <p>
+                Students deserve understandable information before making
+                important decisions.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <article class="value-card">
+              <div class="value-icon">
+                <i class="bi bi-people-fill"></i>
+              </div>
+
+              <h3>Accessible</h3>
+              <p>
+                Quality career guidance should be available regardless of a
+                student's location.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="container">
+        <div class="creator-card">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+              <span class="section-label text-white">
+                <i class="bi bi-code-slash"></i>
+                About the developer
+              </span>
+
+              <h2>Designed and developed by Divyanshu</h2>
+
+              <p class="mt-3">
+                CareerPath is a frontend web-development project created using
+                HTML, CSS, JavaScript, React and Bootstrap. The project focuses
+                on responsive design, clear navigation and an approachable user
+                experience.
+              </p>
+
+              <p>
+                Bootstrap provides the responsive layout and interface
+                foundation, while custom styling and JavaScript create the
+                project's visual identity and interactive behaviour.
+              </p>
+
+              <div class="technology-list">
+                <span class="technology">
+                  <i class="bi bi-filetype-html"></i>HTML
+                </span>
+
+                <span class="technology">
+                  <i class="bi bi-filetype-css"></i>CSS
+                </span>
+
+                <span class="technology">
+                  <i class="bi bi-filetype-js"></i>JavaScript
+                </span>
+
+                <span class="technology">
+                  <i class="bi bi-bootstrap-fill"></i>Bootstrap
+                </span>
+
+                <span class="technology">
+                  <i class="bi bi-code-square"></i>React
+                </span>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <img
+                class="technology-image"
+                src="html.jpeg.jpeg"
+                alt="HTML, CSS, JavaScript and Bootstrap technologies"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-5">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Ready to explore your future?</h2>
+
+          <p class="my-4">
+            Take the assessment or speak with a counsellor to begin building
+            your career roadmap.
+          </p>
+
+          <div class="d-flex gap-3 flex-wrap">
+            <a class="btn-light-custom" href="form.html">
+              Take assessment
+              <i class="bi bi-arrow-right"></i>
+            </a>
+
+            <a class="btn btn-outline-light px-4 fw-bold" href="session.html">
+              Book counselling
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <a class="navbar-brand footer-brand" href="index.html">
+            <span class="brand-icon">
+              <i class="bi bi-signpost-split-fill"></i>
+            </span>
+            CareerPath
+          </a>
+
+          <p class="footer-description">
+            Helping students understand their strengths, explore opportunities
+            and build careers they can feel proud of.
+          </p>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-title">Explore</h3>
+          <a class="footer-link" href="index.html">Home</a>
+          <a class="footer-link" href="cc.html">Career guide</a>
+          <a class="footer-link" href="form.html">Assessment</a>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-title">Guidance</h3>
+          <a class="footer-link" href="session.html">Book counselling</a>
+          <a class="footer-link" href="about.html">About us</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 CareerPath. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
 </body>
 </html>

@@ -1,0 +1,435 @@
+body {
+  background:
+    radial-gradient(
+      circle at 8% 15%,
+      rgba(255, 139, 77, 0.12),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 92% 18%,
+      rgba(91, 76, 240, 0.14),
+      transparent 29%
+    ),
+    #f9f9fd;
+}
+
+.assessment-page {
+  min-height: 100vh;
+  padding: 145px 0 90px;
+}
+
+.assessment-intro {
+  position: sticky;
+  top: 120px;
+}
+
+.assessment-intro h1 {
+  margin-bottom: 22px;
+  font-size: clamp(2.6rem, 5vw, 4.3rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+.assessment-intro h1 span {
+  color: var(--primary);
+}
+
+.assessment-intro > p {
+  max-width: 530px;
+  color: var(--muted);
+  font-size: 1.06rem;
+  line-height: 1.8;
+}
+
+.assessment-benefits {
+  display: grid;
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.benefit-item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.benefit-icon {
+  display: grid;
+  min-width: 46px;
+  height: 46px;
+  color: var(--primary);
+  background: #efedff;
+  border-radius: 14px;
+  place-items: center;
+}
+
+.benefit-item strong,
+.benefit-item small {
+  display: block;
+}
+
+.benefit-item strong {
+  margin-bottom: 2px;
+}
+
+.benefit-item small {
+  color: var(--muted);
+}
+
+.privacy-message {
+  display: flex;
+  gap: 11px;
+  max-width: 500px;
+  padding: 16px;
+  margin-top: 32px;
+  color: #4e5872;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.privacy-message i {
+  margin-top: 2px;
+  color: var(--success);
+}
+
+.assessment-card {
+  padding: clamp(25px, 5vw, 45px);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.form-header {
+  padding-bottom: 27px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-step {
+  display: inline-flex;
+  padding: 7px 12px;
+  margin-bottom: 13px;
+  color: var(--primary);
+  background: #efedff;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.form-header h2 {
+  margin-bottom: 7px;
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.form-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.form-label {
+  margin-bottom: 9px;
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.form-label span {
+  color: #dc3545;
+}
+
+.field-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 16px;
+  color: var(--primary);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.field-wrapper .form-control {
+  padding-left: 45px;
+}
+
+.form-control,
+.form-select {
+  min-height: 54px;
+  padding: 12px 15px;
+  color: var(--dark);
+  background-color: #fbfbfe;
+  border: 1px solid #daddea;
+  border-radius: 12px;
+}
+
+textarea.form-control {
+  min-height: 135px;
+  resize: vertical;
+}
+
+.form-control::placeholder {
+  color: #9da3b5;
+}
+
+.form-control:focus,
+.form-select:focus {
+  color: var(--dark);
+  background: white;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(91, 76, 240, 0.12);
+}
+
+.form-text {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.conditional-field {
+  display: none;
+}
+
+.conditional-field.visible {
+  display: block;
+  animation: revealField 0.35s ease;
+}
+
+@keyframes revealField {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recommendation-panel {
+  padding: 21px;
+  background: #f7f6ff;
+  border: 1px solid #dfdcff;
+  border-radius: 17px;
+}
+
+.recommendation-heading {
+  display: flex;
+  gap: 13px;
+  margin-bottom: 17px;
+  align-items: center;
+}
+
+.recommendation-icon {
+  display: grid;
+  min-width: 42px;
+  height: 42px;
+  color: var(--primary);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(91, 76, 240, 0.1);
+  place-items: center;
+}
+
+.recommendation-heading h3 {
+  margin-bottom: 3px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.recommendation-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.character-count {
+  display: flex;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  justify-content: space-between;
+}
+
+.consent-box {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  color: var(--muted);
+  background: #fbfbfe;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  font-size: 0.91rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.consent-box input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--primary);
+}
+
+.consent-box strong {
+  color: #dc3545;
+}
+
+.form-actions {
+  display: flex;
+  gap: 13px;
+  margin-top: 32px;
+}
+
+.submit-button {
+  flex: 1;
+}
+
+.button-loading {
+  display: none;
+}
+
+.submit-button.loading .button-text {
+  display: none;
+}
+
+.submit-button.loading .button-loading {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.submit-button:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+
+.submission-error {
+  display: none;
+  gap: 9px;
+  padding: 14px 16px;
+  margin-top: 18px;
+  color: #a72b37;
+  background: #fff0f1;
+  border: 1px solid #f4c4c8;
+  border-radius: 12px;
+  align-items: center;
+}
+
+.submission-error.visible {
+  display: flex;
+}
+
+.success-panel {
+  display: none;
+  padding: 35px 10px;
+  text-align: center;
+}
+
+.success-panel.visible {
+  display: block;
+  animation: successReveal 0.5s ease;
+}
+
+@keyframes successReveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-icon {
+  display: grid;
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 22px;
+  color: white;
+  background: var(--success);
+  border-radius: 50%;
+  box-shadow: 0 15px 30px rgba(37, 167, 118, 0.25);
+  font-size: 2rem;
+  place-items: center;
+}
+
+.success-panel h2 {
+  margin-bottom: 14px;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.success-panel h2 span {
+  color: var(--primary);
+}
+
+.success-panel > p {
+  max-width: 540px;
+  margin: 0 auto 27px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.success-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .assessment-intro {
+    position: static;
+    margin-bottom: 35px;
+    text-align: center;
+  }
+
+  .assessment-intro > p,
+  .privacy-message,
+  .assessment-benefits {
+    max-width: 510px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .assessment-benefits,
+  .privacy-message {
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) {
+  .assessment-page {
+    padding: 125px 0 70px;
+  }
+
+  .assessment-intro h1 {
+    letter-spacing: -1px;
+  }
+
+  .assessment-card {
+    padding: 25px 20px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .btn-main,
+  .form-actions .btn-outline-main {
+    width: 100%;
+  }
+}

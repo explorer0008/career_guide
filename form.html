@@ -1,215 +1,780 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Roadmap Form</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            padding: 3rem 1rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        .form-container {
-            max-width: 650px;
-            margin: 0 auto;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .main-heading {
-            font-size: 3rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #212529;
-            animation: fadeInDown 1.2s ease-out forwards;
-            opacity: 0;
-        }
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .form-card {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            flex-grow: 1;
-        }
-        .btn-primary-custom {
-            background-color: #1976d2;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        .btn-primary-custom:hover {
-            background-color: #0d47a1;
-        }
-        .btn-secondary-custom {
-            background-color: #e53935;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        .btn-secondary-custom:hover {
-            background-color: #b71c1c;
-        }
-        @media (max-width: 576px) {
-            .main-heading {
-                font-size: 2.4rem;
-                margin-bottom: 2rem;
-            }
-            .form-card {
-                padding: 2rem;
-            }
-            body {
-                padding: 2rem 0.5rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta
+    name="description"
+    content="Complete the CareerPath assessment and receive a personalised career roadmap."
+  />
+
+  <title>Career Assessment | CareerPath</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="form.css" />
 </head>
+
 <body>
+  <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon">
+          <i class="bi bi-signpost-split-fill"></i>
+        </span>
+        CareerPath
+      </a>
 
-    <div class="form-container">
-        <h1 class="main-heading">Let's Build Your Career Path</h1>
+      <button
+        class="navbar-toggler border-0 shadow-none"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navigation"
+        aria-label="Open navigation"
+      >
+        <i class="bi bi-list fs-2"></i>
+      </button>
 
-        <div class="form-card">
-            <form action="https://formspree.io/f/mkonvjje" method="POST" onsubmit="return validateForm()">
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control form-control-lg" id="name" required>
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#services">Services</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="cc.html">Counsellors</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+
+        <a class="btn-main" href="session.html">
+          Book a session
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="assessment-page">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <section class="assessment-intro">
+            <span class="section-label">
+              <i class="bi bi-stars"></i>
+              Career assessment
+            </span>
+
+            <h1>
+              Build your personalised <span>career roadmap.</span>
+            </h1>
+
+            <p>
+              Tell us about your education, interests and goals. We will use
+              these details to better understand the guidance you need.
+            </p>
+
+            <div class="assessment-benefits">
+              <div class="benefit-item">
+                <span class="benefit-icon">
+                  <i class="bi bi-person-check-fill"></i>
+                </span>
+
+                <div>
+                  <strong>Personalised guidance</strong>
+                  <small>Recommendations based on your profile</small>
                 </div>
+              </div>
 
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control form-control-lg" id="email" required>
-                </div>
+              <div class="benefit-item">
+                <span class="benefit-icon">
+                  <i class="bi bi-signpost-2-fill"></i>
+                </span>
 
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Mobile <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control form-control-lg" id="mobile" required pattern="[0-9]{10}" placeholder="10-digit number">
+                <div>
+                  <strong>Practical roadmap</strong>
+                  <small>Courses, exams and useful next steps</small>
                 </div>
+              </div>
 
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Highest Education</label>
-                    <select class="form-select form-select-lg" id="education" required onchange="updateSuboptions()">
-                        <option value="">Select</option>
-                        <option>High School</option>
-                        <option>Diploma</option>
-                        <option>Bachelor's</option>
-                        <option>Master's</option>
-                        <option>PhD</option>
-                    </select>
-                </div>
+              <div class="benefit-item">
+                <span class="benefit-icon">
+                  <i class="bi bi-clock-fill"></i>
+                </span>
 
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Area of Interest</label>
-                    <select class="form-select form-select-lg" id="interest" required onchange="updateSuboptions()">
-                        <option value="">Select</option>
-                        <option>Engineering</option>
-                        <option>Medical</option>
-                        <option>Commerce</option>
-                        <option>Arts</option>
-                        <option>Science</option>
-                        <option>Civil Services</option>
-                        <option>NDA</option>
-                        <option>CDS</option>
-                        <option>Other</option>
-                    </select>
+                <div>
+                  <strong>Quick assessment</strong>
+                  <small>Usually takes less than five minutes</small>
                 </div>
+              </div>
+            </div>
 
-                <div id="other-interest-box" class="mb-4" style="display:none;">
-                    <label class="form-label fw-bold">Specify Your Interest</label>
-                    <input type="text" class="form-control form-control-lg" id="otherInterest">
-                </div>
+            <div class="privacy-message">
+              <i class="bi bi-shield-lock-fill"></i>
 
-                <div id="suboptions" class="mb-4" style="display:none;">
-                    <label class="form-label fw-bold" id="suboptionLabel"></label>
-                    <select class="form-select form-select-lg" id="suboption"></select>
-                </div>
-
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Message / Concerns</label>
-                    <textarea class="form-control form-control-lg" id="message" rows="5" required placeholder="Share your doubts, goals, or any concerns..."></textarea>
-                </div>
-
-                <div class="mb-5">
-                    <label class="form-label fw-bold">Your Career Goal (Optional)</label>
-                    <input type="text" class="form-control form-control-lg" id="goal" placeholder="e.g., Doctor, Engineer, IAS Officer">
-                </div>
-
-                <div class="d-flex gap-4 justify-content-center">
-                    <button type="button" class="btn btn-secondary-custom btn-lg" onclick="history.back()">Back</button>
-                    <button type="submit" class="btn btn-primary-custom btn-lg">Submit Form</button>
-                </div>
-            </form>
+              <span>
+                Your information is used only to respond to your career
+                guidance request.
+              </span>
+            </div>
+          </section>
         </div>
 
-        <p class="text-center text-muted mt-5 small">* Required fields</p>
+        <div class="col-lg-7">
+          <section class="assessment-card">
+            <form
+              id="careerForm"
+              action="https://formspree.io/f/mkonvjje"
+              method="POST"
+            >
+              <div class="form-header">
+                <span class="form-step">Career profile</span>
+                <h2>Tell us about yourself</h2>
+
+                <p>
+                  Fields marked with an asterisk are required.
+                </p>
+              </div>
+
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <label class="form-label" for="name">
+                    Full name <span>*</span>
+                  </label>
+
+                  <div class="field-wrapper">
+                    <i class="bi bi-person input-icon"></i>
+
+                    <input
+                      class="form-control"
+                      type="text"
+                      id="name"
+                      name="name"
+                      autocomplete="name"
+                      minlength="2"
+                      placeholder="Enter your name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="email">
+                    Email address <span>*</span>
+                  </label>
+
+                  <div class="field-wrapper">
+                    <i class="bi bi-envelope input-icon"></i>
+
+                    <input
+                      class="form-control"
+                      type="email"
+                      id="email"
+                      name="email"
+                      autocomplete="email"
+                      placeholder="name@example.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="mobile">
+                    Mobile number <span>*</span>
+                  </label>
+
+                  <div class="field-wrapper">
+                    <i class="bi bi-phone input-icon"></i>
+
+                    <input
+                      class="form-control"
+                      type="tel"
+                      id="mobile"
+                      name="mobile"
+                      autocomplete="tel"
+                      inputmode="numeric"
+                      pattern="[0-9]{10}"
+                      maxlength="10"
+                      placeholder="Enter a 10-digit mobile number"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-text">
+                    Enter digits only, without the country code.
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="education">
+                    Highest education <span>*</span>
+                  </label>
+
+                  <select
+                    class="form-select"
+                    id="education"
+                    name="education"
+                    required
+                  >
+                    <option value="" selected disabled>
+                      Select education
+                    </option>
+                    <option value="High School">High School</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="Bachelor's">Bachelor's Degree</option>
+                    <option value="Master's">Master's Degree</option>
+                    <option value="PhD">PhD</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="interest">
+                    Area of interest <span>*</span>
+                  </label>
+
+                  <select
+                    class="form-select"
+                    id="interest"
+                    name="interest"
+                    required
+                  >
+                    <option value="" selected disabled>
+                      Select an interest
+                    </option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Medical">Medical and Healthcare</option>
+                    <option value="Commerce">Commerce and Finance</option>
+                    <option value="Arts">Arts and Humanities</option>
+                    <option value="Science">Science and Research</option>
+                    <option value="Technology">
+                      Technology and Computing
+                    </option>
+                    <option value="Civil Services">Civil Services</option>
+                    <option value="Defence">Defence Services</option>
+                    <option value="Law">Law</option>
+                    <option value="Design">Design and Creativity</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="col-12 conditional-field" id="otherInterestBox">
+                  <label class="form-label" for="otherInterest">
+                    Specify your interest <span>*</span>
+                  </label>
+
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="otherInterest"
+                    name="other_interest"
+                    placeholder="Tell us which field interests you"
+                  />
+                </div>
+
+                <div class="col-12 conditional-field" id="recommendationBox">
+                  <div class="recommendation-panel">
+                    <div class="recommendation-heading">
+                      <span class="recommendation-icon">
+                        <i class="bi bi-lightbulb-fill"></i>
+                      </span>
+
+                      <div>
+                        <h3 id="recommendationTitle">
+                          Suggested pathways
+                        </h3>
+
+                        <p>
+                          These are starting points, not final recommendations.
+                        </p>
+                      </div>
+                    </div>
+
+                    <select
+                      class="form-select"
+                      id="recommendation"
+                      name="preferred_recommendation"
+                    ></select>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="goal">
+                    Career goal
+                  </label>
+
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="goal"
+                    name="career_goal"
+                    placeholder="For example: Software engineer or IAS officer"
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="message">
+                    Questions or concerns <span>*</span>
+                  </label>
+
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    name="message"
+                    rows="5"
+                    minlength="10"
+                    maxlength="1000"
+                    placeholder="Share your doubts, goals or anything you would like guidance with"
+                    required
+                  ></textarea>
+
+                  <div class="character-count">
+                    <span>Minimum 10 characters</span>
+                    <span><span id="messageCount">0</span>/1000</span>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label class="consent-box" for="consent">
+                    <input
+                      type="checkbox"
+                      id="consent"
+                      name="consent"
+                      value="Yes"
+                      required
+                    />
+
+                    <span>
+                      I agree to be contacted regarding my career guidance
+                      request. <strong>*</strong>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <input
+                type="hidden"
+                name="_subject"
+                value="New CareerPath Assessment"
+              />
+
+              <div class="form-actions">
+                <a class="btn-outline-main" href="index.html">
+                  <i class="bi bi-arrow-left"></i>
+                  Back home
+                </a>
+
+                <button class="btn-main submit-button" type="submit">
+                  <span class="button-text">
+                    Submit assessment
+                    <i class="bi bi-send-fill"></i>
+                  </span>
+
+                  <span class="button-loading">
+                    <span
+                      class="spinner-border spinner-border-sm"
+                      aria-hidden="true"
+                    ></span>
+                    Sending...
+                  </span>
+                </button>
+              </div>
+
+              <div
+                class="submission-error"
+                id="submissionError"
+                role="alert"
+              >
+                <i class="bi bi-exclamation-circle-fill"></i>
+
+                <span>
+                  We could not submit your request. Please try again.
+                </span>
+              </div>
+            </form>
+
+            <div class="success-panel" id="successPanel" role="status">
+              <div class="success-icon">
+                <i class="bi bi-check-lg"></i>
+              </div>
+
+              <span class="section-label">
+                Assessment received
+              </span>
+
+              <h2>Thank you, <span id="submittedName"></span>!</h2>
+
+              <p>
+                Your career assessment was submitted successfully. We will
+                review your information and contact you with the next steps.
+              </p>
+
+              <div class="success-actions">
+                <a class="btn-main" href="index.html">
+                  Return home
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+
+                <a class="btn-outline-main" href="session.html">
+                  Book counselling
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
+  </main>
 
-    <script src="main.js"></script>
-    <script>
-        function updateSuboptions() {
-            const interest = document.getElementById('interest').value;
-            const education = document.getElementById('education').value;
-            const subDiv = document.getElementById('suboptions');
-            const subSelect = document.getElementById('suboption');
-            const subLabel = document.getElementById('suboptionLabel');
-            const otherBox = document.getElementById('other-interest-box');
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <a class="navbar-brand footer-brand" href="index.html">
+            <span class="brand-icon">
+              <i class="bi bi-signpost-split-fill"></i>
+            </span>
+            CareerPath
+          </a>
 
-            otherBox.style.display = interest === 'Other' ? 'block' : 'none';
-            subDiv.style.display = 'none';
-            subSelect.innerHTML = '';
+          <p class="footer-description">
+            Helping students understand their strengths, explore opportunities
+            and build careers they can feel proud of.
+          </p>
+        </div>
 
-            if (interest === 'Engineering') {
-                subDiv.style.display = 'block';
-                subLabel.textContent = "Recommended Entrance Exams:";
-                if (education === 'High School') {
-                    subSelect.innerHTML = '<option>JEE Main</option><option>JEE Advanced</option><option>BITSAT</option><option>State CETs</option>';
-                } else if (education === "Bachelor's") {
-                    subSelect.innerHTML = '<option>GATE</option><option>CAT (MBA)</option><option>CEED</option>';
-                }
-            } else if (interest === 'Medical') {
-                subDiv.style.display = 'block';
-                subLabel.textContent = "Recommended Entrance Exams:";
-                subSelect.innerHTML = education === 'High School' ? '<option>NEET-UG</option>' : '<option>NEET-PG</option><option>AIIMS PG</option>';
-            } else if (['Commerce','Arts','Science'].includes(interest) && education === 'High School') {
-                subDiv.style.display = 'block';
-                subLabel.textContent = "Popular Options:";
-                subSelect.innerHTML = '<option>CA Foundation</option><option>CLAT (Law)</option><option>CUET</option><option>BBA Entrance</option><option>Hotel Management</option>';
-            }
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-title">Explore</h3>
+          <a class="footer-link" href="index.html">Home</a>
+          <a class="footer-link" href="cc.html">Counsellors</a>
+          <a class="footer-link" href="about.html">About</a>
+        </div>
+
+        <div class="col-6 col-lg-4">
+          <h3 class="footer-title">Guidance</h3>
+          <a class="footer-link" href="form.html">Career assessment</a>
+          <a class="footer-link" href="session.html">Book counselling</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="currentYear"></span> CareerPath. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+  <script>
+    const careerForm = document.getElementById("careerForm");
+    const educationInput = document.getElementById("education");
+    const interestInput = document.getElementById("interest");
+    const otherInterestBox = document.getElementById("otherInterestBox");
+    const otherInterestInput = document.getElementById("otherInterest");
+    const recommendationBox =
+      document.getElementById("recommendationBox");
+    const recommendationInput =
+      document.getElementById("recommendation");
+    const recommendationTitle =
+      document.getElementById("recommendationTitle");
+    const messageInput = document.getElementById("message");
+    const messageCount = document.getElementById("messageCount");
+    const submissionError = document.getElementById("submissionError");
+    const successPanel = document.getElementById("successPanel");
+    const submittedName = document.getElementById("submittedName");
+    const submitButton = document.querySelector(".submit-button");
+
+    const recommendations = {
+      Engineering: {
+        "High School": [
+          "JEE Main",
+          "JEE Advanced",
+          "BITSAT",
+          "State engineering entrance examination"
+        ],
+        Diploma: [
+          "Lateral-entry engineering degree",
+          "Industry certification",
+          "Apprenticeship"
+        ],
+        "Bachelor's": [
+          "GATE",
+          "Engineering specialisation",
+          "MBA or management programme",
+          "Government technical examinations"
+        ],
+        default: [
+          "Technical certification",
+          "Engineering specialisation",
+          "Research programme"
+        ]
+      },
+
+      Medical: {
+        "High School": [
+          "NEET-UG",
+          "Nursing programme",
+          "Pharmacy programme",
+          "Allied healthcare programme"
+        ],
+        "Bachelor's": [
+          "NEET-PG",
+          "Healthcare management",
+          "Clinical research",
+          "Public health"
+        ],
+        default: [
+          "Healthcare specialisation",
+          "Clinical research",
+          "Public health programme"
+        ]
+      },
+
+      Commerce: {
+        "High School": [
+          "CA Foundation",
+          "BCom",
+          "BBA",
+          "Economics degree",
+          "Company Secretary"
+        ],
+        default: [
+          "Chartered Accountancy",
+          "MBA",
+          "Financial analysis",
+          "Banking examinations"
+        ]
+      },
+
+      Arts: {
+        "High School": [
+          "BA programme",
+          "Journalism and mass communication",
+          "Psychology",
+          "Social sciences",
+          "Language studies"
+        ],
+        default: [
+          "Postgraduate specialisation",
+          "Media and communication",
+          "Teaching",
+          "Public policy"
+        ]
+      },
+
+      Science: {
+        "High School": [
+          "BSc programme",
+          "Integrated MSc",
+          "Research programme",
+          "CUET",
+          "Applied science programme"
+        ],
+        default: [
+          "MSc specialisation",
+          "Research fellowship",
+          "Data analysis",
+          "Teaching and academia"
+        ]
+      },
+
+      Technology: {
+        "High School": [
+          "Computer science degree",
+          "Information technology degree",
+          "Web development",
+          "Data science foundation"
+        ],
+        default: [
+          "Software development",
+          "Data science",
+          "Cybersecurity",
+          "Cloud computing",
+          "Artificial intelligence"
+        ]
+      },
+
+      "Civil Services": {
+        default: [
+          "UPSC Civil Services Examination",
+          "State Public Service Commission",
+          "SSC examinations",
+          "Public policy studies"
+        ]
+      },
+
+      Defence: {
+        "High School": [
+          "NDA examination",
+          "Indian Navy entry",
+          "Indian Air Force entry"
+        ],
+        default: [
+          "CDS examination",
+          "AFCAT",
+          "CAPF examination",
+          "Technical officer entry"
+        ]
+      },
+
+      Law: {
+        "High School": [
+          "CLAT",
+          "AILET",
+          "Five-year integrated LLB",
+          "University law entrance examination"
+        ],
+        default: [
+          "Three-year LLB",
+          "Corporate law",
+          "Judiciary examination",
+          "Legal research"
+        ]
+      },
+
+      Design: {
+        "High School": [
+          "NID DAT",
+          "NIFT entrance examination",
+          "UCEED",
+          "Architecture or design programme"
+        ],
+        default: [
+          "UI/UX design",
+          "Product design",
+          "Communication design",
+          "Design management"
+        ]
+      }
+    };
+
+    function updateRecommendations() {
+      const education = educationInput.value;
+      const interest = interestInput.value;
+
+      const isOther = interest === "Other";
+      otherInterestBox.classList.toggle("visible", isOther);
+      otherInterestInput.required = isOther;
+
+      recommendationBox.classList.remove("visible");
+      recommendationInput.innerHTML = "";
+      recommendationInput.required = false;
+
+      if (!interest || isOther) {
+        return;
+      }
+
+      const interestRecommendations = recommendations[interest];
+
+      if (!interestRecommendations) {
+        return;
+      }
+
+      const options =
+        interestRecommendations[education] ||
+        interestRecommendations.default ||
+        [];
+
+      if (options.length === 0) {
+        return;
+      }
+
+      recommendationTitle.textContent =
+        interest === "Civil Services" || interest === "Defence"
+          ? "Relevant examinations and pathways"
+          : "Suggested pathways";
+
+      recommendationInput.innerHTML =
+        '<option value="" selected disabled>Select an option</option>' +
+        options
+          .map(function (option) {
+            return `<option value="${option}">${option}</option>`;
+          })
+          .join("");
+
+      recommendationBox.classList.add("visible");
+      recommendationInput.required = true;
+    }
+
+    educationInput.addEventListener("change", updateRecommendations);
+    interestInput.addEventListener("change", updateRecommendations);
+
+    messageInput.addEventListener("input", function () {
+      messageCount.textContent = messageInput.value.length;
+    });
+
+    careerForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+      submissionError.classList.remove("visible");
+
+      if (!careerForm.checkValidity()) {
+        careerForm.reportValidity();
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.classList.add("loading");
+
+      try {
+        const response = await fetch(careerForm.action, {
+          method: "POST",
+          body: new FormData(careerForm),
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error("Submission failed");
         }
 
-        function validateForm() {
-            const mobile = document.getElementById('mobile').value.trim();
-            if (!/^\d{10}$/.test(mobile)) {
-                alert('Please enter a valid 10-digit mobile number.');
-                return false;
-            }
-            alert('Thank you! Your career roadmap request has been submitted successfully.');
-            return true;
-        }
-    </script>
+        submittedName.textContent =
+          document.getElementById("name").value.trim();
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        careerForm.style.display = "none";
+        successPanel.classList.add("visible");
+
+        successPanel.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      } catch (error) {
+        submissionError.classList.add("visible");
+      } finally {
+        submitButton.disabled = false;
+        submitButton.classList.remove("loading");
+      }
+    });
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
-

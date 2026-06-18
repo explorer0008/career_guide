@@ -1,69 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Counselling Session</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f8f9fa; margin: 0; }
-        .container { max-width: 400px; margin: 2em auto; background: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-        label { margin-top: 0.7em; display: block; }
-        input, textarea, select { width: 100%; padding: 0.5em; margin-top: 0.2em; border-radius: 4px; border: 1px solid #ccc; }
-        button { margin-top: 1em; padding: 0.5em 1.5em; border: none; border-radius: 4px; cursor: pointer; }
-        .back-btn { background: #6c757d; color: #fff; margin-right: 1em; }
-        .submit-btn { background: #007bff; color: #fff; }
-        .instructions { background: #e9ecef; padding: 1em; border-radius: 6px; margin-bottom: 1em; font-size: 0.95em; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta
+    name="description"
+    content="Book a personalised career counselling session with CareerPath."
+  />
+
+  <title>Book a Counselling Session | CareerPath</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="index.css" />
+
+  <style>
+    body {
+      background:
+        radial-gradient(circle at 10% 15%, rgba(255, 139, 77, 0.12), transparent 25%),
+        radial-gradient(circle at 90% 20%, rgba(91, 76, 240, 0.14), transparent 30%),
+        #f9f9fd;
+    }
+
+    .booking-page {
+      min-height: 100vh;
+      padding: 135px 0 80px;
+    }
+
+    .booking-intro {
+      position: sticky;
+      top: 120px;
+    }
+
+    .booking-intro h1 {
+      margin-bottom: 20px;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.08;
+    }
+
+    .booking-intro h1 span {
+      color: var(--primary);
+    }
+
+    .booking-intro > p {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .benefit-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .benefit-icon {
+      display: grid;
+      min-width: 45px;
+      height: 45px;
+      color: var(--primary);
+      background: #efedff;
+      border-radius: 13px;
+      place-items: center;
+    }
+
+    .benefit strong,
+    .benefit small {
+      display: block;
+    }
+
+    .benefit small {
+      color: var(--muted);
+    }
+
+    .booking-card {
+      padding: clamp(25px, 5vw, 45px);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-heading {
+      margin-bottom: 7px;
+      font-size: 1.65rem;
+      font-weight: 800;
+    }
+
+    .form-description {
+      margin-bottom: 30px;
+      color: var(--muted);
+    }
+
+    .form-label {
+      margin-bottom: 8px;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .form-control,
+    .form-select {
+      min-height: 53px;
+      padding: 12px 15px;
+      background-color: #fbfbfe;
+      border: 1px solid #daddea;
+      border-radius: 12px;
+    }
+
+    textarea.form-control {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      background: white;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(91, 76, 240, 0.12);
+    }
+
+    .privacy-note {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .privacy-note i {
+      color: var(--success);
+    }
+
+    .success-box {
+      display: none;
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    .success-box.show {
+      display: block;
+    }
+
+    .success-icon {
+      display: grid;
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 20px;
+      color: white;
+      background: var(--success);
+      border-radius: 50%;
+      font-size: 2rem;
+      place-items: center;
+    }
+
+    @media (max-width: 991px) {
+      .booking-intro {
+        position: static;
+        margin-bottom: 35px;
+        text-align: center;
+      }
+
+      .booking-intro > p {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .benefit-list {
+        max-width: 450px;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: left;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
     <div class="container">
-        <div class="instructions">
-            <strong>Instructions:</strong><br>
-            Your session will be conducted on Google Meet by experienced counsellors. Please fill in the details below. After submitting, you will be contacted shortly with further instructions.
-        </div>
-        <form id="sessionForm">
-            <label for="qualification">Highest Qualification:</label>
-            <select id="qualification" name="qualification" required>
-                <option value="">Select</option>
-                <option value="High School">High School</option>
-                <option value="Diploma">Diploma</option>
-                <option value="Bachelor's">Bachelor's</option>
-                <option value="Master's">Master's</option>
-                <option value="PhD">PhD</option>
-            </select>
+      <a class="navbar-brand" href="index.html">
+        <span class="brand-icon">
+          <i class="bi bi-signpost-split-fill"></i>
+        </span>
+        CareerPath
+      </a>
 
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+      <button
+        class="navbar-toggler border-0 shadow-none"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navigation"
+        aria-label="Open navigation"
+      >
+        <i class="bi bi-list fs-2"></i>
+      </button>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
 
-            <label for="mobile">Mobile:</label>
-            <input type="text" id="mobile" name="mobile" required>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#services">Services</a>
+          </li>
 
-            <label for="address">Address:</label>
-            <textarea id="address" name="address" rows="2" required></textarea>
+          <li class="nav-item">
+            <a class="nav-link" href="cc.html">Career guide</a>
+          </li>
 
-            <label for="date">Preferred Date:</label>
-            <input type="date" id="date" name="date" required>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
 
-            <label for="time">Preferred Time:</label>
-            <input type="time" id="time" name="time" required>
-
-            <label for="issue">Major Issue:</label>
-            <textarea id="issue" name="issue" rows="2" required></textarea>
-
-            <div style="display: flex; justify-content: flex-end;">
-                <button type="button" class="back-btn" onclick="window.history.back()">Back</button>
-                <button type="submit" class="submit-btn">Submit</button>
-            </div>
-        </form>
+        <a class="btn-outline-main" href="form.html">
+          Take assessment
+        </a>
+      </div>
     </div>
-    <script>
-        document.getElementById('sessionForm').onsubmit = function(e) {
-            e.preventDefault();
-            alert('We will connect with you shortly.');
-        };
-    </script>
+  </nav>
+
+  <main class="booking-page">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <section class="booking-intro">
+            <span class="section-label">
+              <i class="bi bi-person-video3"></i>
+              Personal guidance
+            </span>
+
+            <h1>
+              Let's plan your <span>next step.</span>
+            </h1>
+
+            <p>
+              Book a one-to-one Google Meet session with an experienced
+              counsellor. Tell us about your situation, and we will help you
+              explore your best options.
+            </p>
+
+            <div class="benefit-list">
+              <div class="benefit">
+                <div class="benefit-icon">
+                  <i class="bi bi-camera-video-fill"></i>
+                </div>
+
+                <div>
+                  <strong>Online Google Meet session</strong>
+                  <small>Join from any location or device</small>
+                </div>
+              </div>
+
+              <div class="benefit">
+                <div class="benefit-icon">
+                  <i class="bi bi-person-check-fill"></i>
+                </div>
+
+                <div>
+                  <strong>Experienced counsellors</strong>
+                  <small>Practical and personalised advice</small>
+                </div>
+              </div>
+
+              <div class="benefit">
+                <div class="benefit-icon">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+
+                <div>
+                  <strong>Private and confidential</strong>
+                  <small>Your information remains protected</small>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="col-lg-7">
+          <section class="booking-card">
+            <form id="sessionForm">
+              <h2 class="form-heading">Book your session</h2>
+
+              <p class="form-description">
+                Complete the form and our team will contact you with the
+                meeting details.
+              </p>
+
+              <div class="row g-4">
+                <div class="col-12">
+                  <label class="form-label" for="qualification">
+                    Highest qualification
+                  </label>
+
+                  <select
+                    class="form-select"
+                    id="qualification"
+                    name="qualification"
+                    required
+                  >
+                    <option value="" selected disabled>
+                      Select your qualification
+                    </option>
+                    <option value="High School">High School</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="Bachelor's">Bachelor's Degree</option>
+                    <option value="Master's">Master's Degree</option>
+                    <option value="PhD">PhD</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="name">Full name</label>
+
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    placeholder="Enter your name"
+                    minlength="2"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="email">Email address</label>
+
+                  <input
+                    class="form-control"
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    placeholder="name@example.com"
+                    required
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="mobile">Mobile number</label>
+
+                  <input
+                    class="form-control"
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    autocomplete="tel"
+                    inputmode="numeric"
+                    pattern="[0-9+\-\s]{10,15}"
+                    placeholder="Enter a valid mobile number"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="date">Preferred date</label>
+
+                  <input
+                    class="form-control"
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="time">Preferred time</label>
+
+                  <input
+                    class="form-control"
+                    type="time"
+                    id="time"
+                    name="time"
+                    required
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="address">
+                    City or location
+                  </label>
+
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="address"
+                    name="address"
+                    autocomplete="address-level2"
+                    placeholder="For example, Delhi"
+                    required
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="issue">
+                    What would you like help with?
+                  </label>
+
+                  <textarea
+                    class="form-control"
+                    id="issue"
+                    name="issue"
+                    rows="4"
+                    minlength="10"
+                    placeholder="Briefly describe your questions or concerns"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="privacy-note">
+                <i class="bi bi-lock-fill"></i>
+
+                <span>
+                  Your details will only be used to arrange your counselling
+                  session.
+                </span>
+              </div>
+
+              <div class="d-flex gap-3 flex-wrap mt-4">
+                <a class="btn-outline-main" href="index.html">
+                  <i class="bi bi-arrow-left"></i>
+                  Back home
+                </a>
+
+                <button class="btn-main flex-grow-1" type="submit">
+                  Confirm booking
+                  <i class="bi bi-calendar-check"></i>
+                </button>
+              </div>
+            </form>
+
+            <div class="success-box" id="successBox" role="status">
+              <div class="success-icon">
+                <i class="bi bi-check-lg"></i>
+              </div>
+
+              <h2 class="form-heading">Request received!</h2>
+
+              <p class="form-description">
+                Thank you, <strong id="studentName"></strong>. We will contact
+                you shortly with further instructions.
+              </p>
+
+              <a class="btn-main" href="index.html">
+                Return to home
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+  <script>
+    const sessionForm = document.getElementById("sessionForm");
+    const dateInput = document.getElementById("date");
+    const successBox = document.getElementById("successBox");
+    const studentName = document.getElementById("studentName");
+
+    const today = new Date();
+    const localDate = new Date(
+      today.getTime() - today.getTimezoneOffset() * 60000
+    )
+      .toISOString()
+      .split("T")[0];
+
+    dateInput.min = localDate;
+
+    sessionForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!sessionForm.checkValidity()) {
+        sessionForm.reportValidity();
+        return;
+      }
+
+      studentName.textContent =
+        document.getElementById("name").value.trim();
+
+      sessionForm.style.display = "none";
+      successBox.classList.add("show");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
